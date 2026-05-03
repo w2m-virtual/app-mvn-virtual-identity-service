@@ -1,0 +1,25 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: w2m-virtual-identity-service
+
+identity:
+  jwt:
+    secret: ${JWT_SECRET:w2m-virtual-demo-secret-please-change-me-this-must-be-very-long-32+chars}
+    issuer: w2m-virtual-identity
+    expiration-minutes: 480
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    root: INFO
+    com.w2m.virtual: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
