@@ -1,0 +1,11 @@
+# Identity Service — JWT in-memory, sin infra externa.
+
+services:
+  app:
+    build: .
+    container_name: w2m-virtual-identity-service
+    restart: unless-stopped
+    environment:
+      JWT_SECRET: ${JWT_SECRET:-w2m-virtual-demo-secret-please-change-me-this-must-be-very-long-32+chars}
+    ports:
+      - "${APP_PORT:-8088}:8088"
